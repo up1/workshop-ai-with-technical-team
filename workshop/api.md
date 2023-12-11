@@ -62,16 +62,31 @@ Response for API
   * Try to generate sql query to create table user
 
 ### Step 3 :: Testing
+
 * As a Tester/QA to test software, i want to generate test cases for REST API 
-- success case
-- failure case
-- edge case
+  - success case
+  - failure case
+  - edge case
 * As a Tester/QA to test software, i want to generate test cases for REST API with table format (markdown) 
-- success case
-- failure case
-- edge case
+  - success case
+  - failure case
+  - edge case
 
 * As a Go developer, i want to generate API test with testing package and testify package
-- success case
-- failure case
-- edge case
+  - success case
+  - failure case
+  - edge case
+
+## Step 4 :: Deployment step
+* As a operation, i want to deploy REST API with Docker and Docker compose, pls generate file from below
+  - Dockerfile for go application
+  - Dockerfile for mysql with initial table and data for testing
+  - docker-compose.yml of Go and mysql
+
+* Please use go 1.24 and mysql 8
+* Try to add heakcheck og go and mysql to docker-compose.yml 
+* Update depends_on with healthy status
+* Try to add observability to REST API
+  - Application metric with prometheus
+  - Log aggregation with log/slog package
+  - Distributed tracing with opentelemetry and export to jaeger tracing
