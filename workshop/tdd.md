@@ -33,3 +33,7 @@ export const removeItemAll = (arr:any[], value:any) => {
 ### Step 3 :: Add more test cases
 * Add more test cases for edge cases
 * Add more test cases for security issue cases (Injection and Cross-Site Script)
+
+### Step 4 :: More ..
+* try to refactor
+* try to explain
