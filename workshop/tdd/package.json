@@ -1,0 +1,17 @@
+{
+  "name": "tdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.421.0",
+    "@aws-sdk/util-dynamodb": "^3.421.0",
+    "aws-sdk-client-mock": "^3.0.0",
+    "jest": "^29.7.0"
+  }
+}
