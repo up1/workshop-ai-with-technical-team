@@ -54,6 +54,9 @@ Response for API
 Try to run
 ```
 $go run main.go
+
+$go test -coverprofile=coverage.out
+$go tool cover -html=coverage.out
 ```
 
 ### Step 2 :: More tasks
