@@ -51,7 +51,14 @@ Response for API
 
 ```
 
+Try to run
+```
+$go run main.go
+```
+
 ### Step 2 :: More tasks
+* Refactor main to demo package
+* generate api test with go and gin
 * Generate code to insert a new user in MySQL database
 * Refactor code :: try to move code from controller to service layer
 * In database layer or repository layer, try to generate code to check for duplicate first name in the database
