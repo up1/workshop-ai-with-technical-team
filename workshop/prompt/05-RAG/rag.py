@@ -2,10 +2,22 @@ from typing import List
 from langchain_community.document_loaders import TextLoader
 from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings
-from langchain_core.prompts import PromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import BaseOutputParser
 from langchain_openai import ChatOpenAI
-from langchain.retrievers.multi_query import MultiQueryRetriever
+
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
+
+QUERY_PROMPT = """
+Answer the question as truthfully as possible, and if you're unsure of the answer, 
+say "Sorry, I don't know".
+
+Context : {context}
+"""
+
+llm = ChatOpenAI(model="gpt-4o-mini")
+    
 
 # Output parser will split the LLM result into a list of queries
 class LineListOutputParser(BaseOutputParser[List[str]]):
@@ -24,21 +36,17 @@ def read_data_and_convert_to_vector(file_path):
     return vectorstore
 
 # Generate response using OpenAI
-def generate_response(prompt, retriever):
-    QUERY_PROMPT = PromptTemplate(
-        template="""
-        Answer the question as truthfully as possible, and if you're unsure of the answer, 
-        say "Sorry, I don't know".
-        """
-    )
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.5, max_tokens=100)
-    llm_chain = QUERY_PROMPT | llm | LineListOutputParser()
-    multipleRetriver = MultiQueryRetriever(
-        retriever=retriever, 
-        llm_chain=llm_chain, 
-        parser_key="lines")
-    docs = multipleRetriver.invoke(prompt)
-    return docs
+def generate_response(question, retriever):
+    prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", QUERY_PROMPT),
+        ("human", "{input}"),
+    ]
+)
+    question_answer_chain = create_stuff_documents_chain(llm, prompt)
+    rag_chain = create_retrieval_chain(retriever, question_answer_chain)
+    result = rag_chain.invoke({"input": question})
+    return result
 
 if __name__ == "__main__":
     # Path to your text file
@@ -47,6 +55,14 @@ if __name__ == "__main__":
     # Read data from the file and convert it to vectorstore
     vectorstore = read_data_and_convert_to_vector(file_path)
 
+    # Save to local file
+    # vectorstore.save_local("faiss_index")
+    # Load from local file
+    # vectorstore = FAISS.load_local(
+    #     "faiss_index", 
+    #     OpenAIEmbeddings(), 
+    #     allow_dangerous_deserialization=True)
+    
     # Convert vectorstore to retriever
     if vectorstore is not None:
         retriever = vectorstore.as_retriever()
@@ -57,4 +73,4 @@ if __name__ == "__main__":
     prompt = "Who won the 2024 Olympics men's speed 100m"
     response = generate_response(prompt, retriever)
     print(response)
-    print(response[0].page_content)
+    print(response["answer"])
