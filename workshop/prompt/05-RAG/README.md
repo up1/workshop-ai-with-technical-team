@@ -18,6 +18,8 @@ $python rag-openai.py
 ```
 
 ## Run with Ollama
+* [Ollama python](https://github.com/ollama/ollama-python)
+* [Langchain Ollama](https://python.langchain.com/v0.2/docs/integrations/llms/ollama/)
 ```
 $python rag-ollama.py
 ```
