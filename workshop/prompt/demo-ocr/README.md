@@ -3,13 +3,19 @@
 * OpenAI
 * Python 3+
 
-## Steps
+## Steps of workshop
 * Install the required libraries.
 * Import necessary modules.
 * Load the image file.
 * Use OCR to extract text from the image.
 * Initialize OpenAI API with LangChain.
 * Process the extracted text using OpenAI's API.
+* Create backend with REST API
+  * NodeJS
+  * Express
+* Create frontend
+  * ReactJS
+  * Axios
 
 
 ## Install
