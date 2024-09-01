@@ -29,6 +29,13 @@ $python 1-read-data-from-image.py
 ```
 
 ## Prompt to generate REST API to read data
+* Libraries
+  * express
+  * @langchain/core
+  * @langchain/openai
+  * multer
+  * tesseract.js
+
 ```
 As a NodeJS developer, i want to generate code with NodeJS
 POST /slip/upload
