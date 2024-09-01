@@ -1,13 +1,23 @@
 # Workshop :: RAG (Retrieval-Augmented Generation)
-* Prompt Pipelines
+* Prompt template
 * Prompt Injection
+
+## Requirements
+* Python 3+
+* OpenAI API Key
 
 ## Initial
 ```
 $pip install -r requirements.txt
 ```
 
-## Run
+## Run with OpenAPI's Key
 ```
-$python rag.py
+$export OPENAI_API_KEY=<your key>
+$python rag-openai.py
+```
+
+## Run with Ollama
+```
+$python rag-ollama.py
 ```
