@@ -3,3 +3,8 @@
 * Develop
 * Test
 * Deploy
+
+## Coding
+* Working with OpenAI
+* Working with Langchain library
+  
