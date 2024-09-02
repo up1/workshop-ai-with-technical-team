@@ -19,3 +19,7 @@ $streamlit run app.py
 ```
 $streamlit run --server.maxUploadSize=10 app-qa.py
 ```
+
+
+### Reference websites
+* [Build powerful generative AI apps](https://streamlit.io/generative-ai)
