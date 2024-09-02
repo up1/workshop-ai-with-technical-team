@@ -11,7 +11,7 @@ $pip install -r requirements.txt
 ## Run with streamlit :: ChatBot
 * OpenAI
 ```
-$streamlit run --server.maxUploadSize=10 app-qa.py
+$streamlit run app.py
 ```
 
 ## Run with streamlit :: QA
