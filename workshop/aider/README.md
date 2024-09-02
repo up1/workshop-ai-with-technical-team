@@ -15,7 +15,7 @@ $export OPENAI_API_KEY=your-api-key
 
 // Ollama :: https://aider.chat/docs/llms/ollama.html
 $export OLLAMA_API_BASE=http://127.0.0.1:11434
-$aider --model ollama/<model>
+$aider --model ollama/llama3.1
 ```
 
 ## Start project with Aider with [OpenAI]()https://aider.chat/docs/llms/openai.html
@@ -47,6 +47,9 @@ Improve code to add case 500 for database or internal error
 * Add test case with supertest for app.js in folder __tests__ 
 * Review code
   * /ask review
+  * /ask review `app.js`
+* Run test
+  * /test npm run test
 
 ## Initial project
 ```
