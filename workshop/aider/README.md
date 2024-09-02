@@ -47,3 +47,23 @@ Improve code to add case 500 for database or internal error
 * Add test case with supertest for app.js in folder __tests__ 
 * Review code
   * /ask review
+
+## Initial project
+```
+$npm init -y
+$npm install -S express
+$npm install -D jest supertest
+```
+
+## Run test
+Edit file `package.json`
+```
+"scripts": {
+    "test": "jest"
+  }
+```
+
+Run
+```
+$npm test
+```
