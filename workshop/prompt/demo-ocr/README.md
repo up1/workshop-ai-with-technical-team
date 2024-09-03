@@ -3,6 +3,9 @@
 * OpenAI
 * Python 3+
 
+## Simple prompts
+* [Starter prompt](https://github.com/up1/workshop-ai-with-technical-team/wiki/Workshop-::-Bank's-slip)
+
 ## Steps of workshop
 * Install the required libraries.
 * Import necessary modules.
