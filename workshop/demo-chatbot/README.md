@@ -1,5 +1,6 @@
 # Demo :: Simple chatbot
 * [Streamlit](https://docs.streamlit.io/)
+* [Chainlit](https://github.com/Chainlit/chainlit)
 * OpenAI
 * Anthropic
 
