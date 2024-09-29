@@ -18,7 +18,7 @@ $export OLLAMA_API_BASE=http://127.0.0.1:11434
 $aider --model ollama/llama3.1
 ```
 
-## Start project with Aider with [OpenAI]()https://aider.chat/docs/llms/openai.html
+## Start project with Aider with [OpenAI](https://aider.chat/docs/llms/openai.html)
 
 
 Create file `index.js`
