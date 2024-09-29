@@ -1,0 +1,9 @@
+langchain
+langchain-community
+langchain-openai
+langchain_experimental
+faiss-cpu
+pypdf
+tabulate
+numpy
+pandas
