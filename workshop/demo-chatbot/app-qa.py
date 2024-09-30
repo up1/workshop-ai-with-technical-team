@@ -3,7 +3,7 @@ import anthropic
 
 with st.sidebar:
     anthropic_api_key = st.text_input("Anthropic API Key", key="file_qa_api_key", type="password")
-    "[Get an Anthropic API key](https://platform.anthropic.com/account/api-keys)"
+    "[Get an Anthropic API key](https://console.anthropic.com/settings/keys)"
     
 
 st.title("📝 File Q&A with Anthropic")
