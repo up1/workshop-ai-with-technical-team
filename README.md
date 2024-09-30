@@ -4,7 +4,7 @@
 * Test
 * Deploy
 
-## Coding
-* Working with OpenAI
+## Coding and workshop
+* Working with OpenAI, Anthropic, Local LLM
 * Working with Langchain library
   
