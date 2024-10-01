@@ -1,0 +1,6 @@
+langchain
+faiss-cpu
+pypdf
+tabulate
+numpy
+pandas
