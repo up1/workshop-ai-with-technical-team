@@ -1,0 +1,4 @@
+faiss_index
+faiss_index/*
+*.pdf
+demo/*

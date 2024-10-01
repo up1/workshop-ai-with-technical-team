@@ -1,0 +1,9 @@
+openai
+langchain
+langchain-community
+langchain-openai
+langchain_experimental
+langchain_chroma
+faiss-cpu
+
+langchain-ollama
