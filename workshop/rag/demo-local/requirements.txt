@@ -1,0 +1,6 @@
+langchain
+langchain-community
+langchain-huggingface
+sentence-transformers
+sqlite-vss
+langchain_ollama
