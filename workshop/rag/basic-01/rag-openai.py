@@ -10,6 +10,7 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
 QUERY_PROMPT = """
+Instructions: Answer the following question based on the context provided with short answer.
 Context : {context}
 """
 
@@ -67,7 +68,7 @@ if __name__ == "__main__":
         retriever = None
     
     # Generate response
-    prompt = "Who won the 2024 Olympics men's speed 100m"
+    prompt = "Who won the 2025 Olympics men's speed 100m"
     response = generate_response(prompt, retriever)
     print(response)
     print(response["answer"])
