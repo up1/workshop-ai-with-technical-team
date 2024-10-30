@@ -7,6 +7,8 @@
 ## Steps to run
 ```
 $pip install -r requirements.txt
+
+$export ANTHROPIC_API_KEY=<your key>
 $python demo-sql.py
 ```
 
