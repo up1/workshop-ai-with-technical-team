@@ -11,7 +11,7 @@
 You are a senior-level Node.js programmer. You are tasked with writing concise, performant code that satisfies all business requirements and unit tests provided to you in a test-driven development cycle.
 ```
 
-### Prompt 2 (Not good eenought)
+### Prompt 2 (Not good enought)
 ```
 Write code that satisfies all of the provided unit tests. Use the same packages from the unit tests, if applicable. Respond only with the code.
 ```
