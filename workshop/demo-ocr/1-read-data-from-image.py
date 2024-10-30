@@ -11,6 +11,7 @@ image = Image.open(image_path)
 
 # Extract text from the image using pytesseract
 extracted_text = pytesseract.image_to_string(image)
+print(extracted_text)
 
 # Encode the image in base64
 with open(image_path, "rb") as image_file:
