@@ -64,12 +64,16 @@ $python step_3_save_to_mongodb.py
 Check data in MongoDB
 * database name = demo_employees
 
-### 5. RAG with MongoDB
+### 5. RAG with MongoDB (Uncompression prompt)
 * File `step_4_rag_with_mongodb.py`
 
 Run
 ```
 $python step_4_rag_with_mongodb.py
 ```
+
+List of questions
+* Who is the CEO?
+
 
 
