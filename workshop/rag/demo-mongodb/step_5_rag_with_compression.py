@@ -1,7 +1,9 @@
 from step_2_embedding import get_embedding
 from step_3_save_to_mongodb import get_mongo_client
+from step_4_rag_with_mongodb import vector_search
 import os
 import openai
+import pprint
 
 # Configurations
 MONGO_URI = os.environ.get("MONGO_URI")
@@ -9,33 +11,30 @@ DATABASE_NAME = "demo_employees"
 COLLECTION_NAME = "employees"
 OPEN_AI_MODEL = "gpt-4o"
 
-def vector_search(user_query, collection, vector_index="vector_index"):
-    # Generate embedding for the user query
-    query_embedding = get_embedding(user_query)
+from llmlingua import PromptCompressor
 
-    if query_embedding is None:
-        return "Invalid query or embedding generation failed."
+llm_lingua = PromptCompressor(
+    model_name="microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank",
+    model_config={"revision": "main"},
+    use_llmlingua2=True,
+    device_map="cpu" # change to 'cuda' if gpu is availabe on device
+)
 
-    # Define the vector search stage
-    vector_search_stage = {
-        "$vectorSearch": {
-            "index": vector_index, # specifies the index to use for the search
-            "queryVector": query_embedding, # the vector representing the query
-            "path": "embedding", # field in the documents containing the vectors to search against
-            "numCandidates": 150, # number of candidate matches to consider
-            "limit": 5 # return top 20 matches
-        }
-    }
+def compress_query_prompt(context):
+  compressed_prompt = llm_lingua.compress_prompt(
+    str(context),
+    rate=0.33,
+    force_tokens=["!", ".", "?", "\n"],
+    drop_consecutive=True,
+  )
 
-    # Define the aggregate pipeline with the vector search stage and additional stages
-    pipeline = [vector_search_stage]
+  print("------")
+  print(compressed_prompt)
+  print("-------")
 
-    # Execute the search
-    results = collection.aggregate(pipeline)
+  return compressed_prompt
 
-    return list(results)
-
-def handle_user_query(query, collection):
+def handle_user_query_with_compression(query, collection):
 
   get_knowledge = vector_search(query, collection)
 
@@ -46,14 +45,23 @@ def handle_user_query(query, collection):
       employee_profile = f"""
       Employee ID: {result['employee_id']}
       Name: {result['first_name']} {result['last_name']}
-      Manager: {result['reporting_manager']}
       Job Details: Title - {result['job_details']['job_title']}
       """
       search_result += employee_profile + "\n"
 
-  prompt = "Answer this user query: " + query + " with the following context: " + search_result
-  print("Uncompressed Prompt:\n")
-  print(prompt)
+  # Prepare information for compression
+  query_info = {
+    'demonstration_str': search_result,  # Results from information retrieval process
+    'instruction': "Write a high-quality answer for the given question using only the provided search results.",
+    'question': query
+  }
+
+  # Compress the query prompt
+  compressed_prompt = compress_query_prompt(query_info)
+
+  prompt =  f"Answer this user query: {query} with the following context:\n{compressed_prompt}"
+  print("Compressed Prompt:\n")
+  pprint.pprint(prompt)
 
   completion = openai.chat.completions.create(
       model=OPEN_AI_MODEL,
@@ -77,6 +85,6 @@ if __name__ == "__main__":
 
     # 3. Handle user queries
     user_query = "Who is the CEO?"
-    response, search_result = handle_user_query(user_query, collection)
+    response, search_result = handle_user_query_with_compression(user_query, collection)
     print("Response from the system:\n")
     print(response)

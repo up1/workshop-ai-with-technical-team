@@ -75,5 +75,14 @@ $python step_4_rag_with_mongodb.py
 List of questions
 * Who is the CEO?
 
+### 6. Prompt Compression to reduce size of context
+* File `step_5_rag_with_compression.py`
 
+Run
+```
+$python step_5_rag_with_compression.py
+```
+
+## References
+* [Pragmatic LLM Application Development](https://github.com/up1/GenAI-Showcase/blob/main/notebooks/workshops/Pragmatic_LLM_Application_Introduction_From_RAG_to_Agents_with_MongoDB.ipynb)
 
