@@ -1,5 +1,5 @@
 services:
   mongo:
-    image: mongo:8
+    image: mongodb/mongodb-atlas-local
     ports:
       - "27017:27017"

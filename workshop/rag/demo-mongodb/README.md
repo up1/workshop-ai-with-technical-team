@@ -57,11 +57,19 @@ demo-mongodb-mongo-1   mongo:8   "docker-entrypoint.s…"   mongo     3 minutes 
 
 Run
 ```
-$export MONGO_URI=mongodb://localhost:27017
+$export MONGO_URI=mongodb://localhost:27017/?directConnection=true
 $python step_3_save_to_mongodb.py
 ```
 
 Check data in MongoDB
 * database name = demo_employees
+
+### 5. RAG with MongoDB
+* File `step_4_rag_with_mongodb.py`
+
+Run
+```
+$python step_4_rag_with_mongodb.py
+```
 
 

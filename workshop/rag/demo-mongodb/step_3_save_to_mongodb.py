@@ -1,6 +1,7 @@
 from step_2_embedding import create_employee_string, get_embedding
 import pandas as pd
 from pymongo.mongo_client import MongoClient
+from pymongo.operations import SearchIndexModel
 import os
 
 # MongoDB configuration
@@ -48,4 +49,24 @@ if __name__ == "__main__":
     documents = df_employees.to_dict('records')
     collection.delete_many({})
     collection.insert_many(documents)
+
+    # 7. Create vector index
+    # Create your index model, then create the search index
+    search_index_model = SearchIndexModel(
+    definition={
+        "fields": [
+            {
+                "type": "vector",
+                "numDimensions": 1536,
+                "path": "embedding",
+                "similarity": "cosine"
+            }
+        ]
+    },
+    name="vector_index",
+    type="vectorSearch",
+    )
+    result = collection.create_search_index(model=search_index_model)
+    print(result)
+
     print("Data ingestion into MongoDB completed")
