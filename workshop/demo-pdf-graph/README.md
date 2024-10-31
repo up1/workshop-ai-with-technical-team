@@ -15,7 +15,7 @@ $pip install -r requirements.txt
 ```
 
 ## Step 2 :: Download PDF files and save to image files
-* Save PDF files into folder `images/`
+* Save PDF files into folder `datas/`
 ```
 $python step_1_download_data.py
 ```

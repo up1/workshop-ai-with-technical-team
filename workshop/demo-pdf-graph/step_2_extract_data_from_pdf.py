@@ -58,7 +58,7 @@ def process_pdf(pdf_path):
 if __name__ == "__main__":
 
     # List file within the folder and return absolute path
-    folder = "./images"
+    folder = "./datas"
     pdf_paths = [os.path.join(folder, pdf_path) for pdf_path in os.listdir(folder) if pdf_path.endswith(".pdf")]
     
     # Process the PDFs concurrently

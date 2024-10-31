@@ -72,7 +72,7 @@ def process_pdf(pdf_path):
 # Function main
 if __name__ == "__main__":
     # Create a folder to store the downloaded PDFs
-    folder = "./images"
+    folder = "./datas"
     if not os.path.exists(folder):
         os.makedirs(folder)
 
