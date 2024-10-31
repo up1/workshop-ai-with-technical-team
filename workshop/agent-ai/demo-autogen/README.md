@@ -47,7 +47,5 @@ $python agent.py
 $brew install libomp
 ```
 
-
-
 ### Reference websites
 * [Task Solving with Code Generation, Execution and Debugging](https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_auto_feedback_from_code_execution)
