@@ -1,0 +1,4 @@
+anthropic 
+IPython 
+PyMuPDF 
+matplotlib
