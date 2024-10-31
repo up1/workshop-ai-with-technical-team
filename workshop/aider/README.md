@@ -44,7 +44,8 @@ Improve code to add case 500 for database or internal error
 
 ## More prompts
 * Refactor to split code into 2 files, index.js and app.js
-* Add test case with supertest for app.js in folder __tests__ 
+* Add test case with supertest for app.js in folder `__tests__`
+* Refactor to move GET /products/:id to file product.route.js 
 * Review code
   * /ask review
   * /ask review `app.js`
