@@ -51,9 +51,12 @@ Improve code to add case 500 for database or internal error
   * /ask review `app.js`
 * Run test
   * /test npm run test
-* Add reademe file
+* Add documents
   *  Generate sequence diagram of Oauth 2 in mermaid diagram and list of step-by-st
-ep of process 
+ep of process
+  * Create OpenAPI Doc or swagger 3 , from rest api with nodejs and express libra
+ry : GET /products/:id that return { 
+"id": 1, "name": "product name", "price": 100.50}
 
 ## Initial project
 ```
