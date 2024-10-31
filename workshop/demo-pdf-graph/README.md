@@ -27,6 +27,11 @@ $python step_2_extract_data_from_pdf.py
 ```
 
 ## Step 4 :: Working with model=`claude-3-opus-20240229`
+* Generate a response to our question and create a graph using matplotlib
 ```
 $python step_3_question_with_opus.py
 ```
+
+
+### Reference websites
+* [Using Haiku as a sub-agent](https://github.com/anthropics/anthropic-cookbook/blob/main/multimodal/using_sub_agents.ipynb)
