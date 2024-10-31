@@ -25,3 +25,8 @@ $python step_1_download_data.py
 ```
 $python step_2_extract_data_from_pdf.py
 ```
+
+## Step 4 :: Working with model=`claude-3-opus-20240229`
+```
+$python step_3_question_with_opus.py
+```
