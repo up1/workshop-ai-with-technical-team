@@ -51,6 +51,9 @@ Improve code to add case 500 for database or internal error
   * /ask review `app.js`
 * Run test
   * /test npm run test
+* Add reademe file
+  *  Generate sequence diagram of Oauth 2 in mermaid diagram and list of step-by-st
+ep of process 
 
 ## Initial project
 ```
