@@ -15,11 +15,13 @@ $pip install -r requirements.txt
 ```
 
 ## Step 2 :: Download PDF files and save to image files
+* Save PDF files into folder `images/`
 ```
 $python step_1_download_data.py
 ```
 
 ## Step 3 :: Extract data from PDF
+* Save result to file `extracted_info.txt`
 ```
 $python step_2_extract_data_from_pdf.py
 ```
