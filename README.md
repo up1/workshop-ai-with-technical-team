@@ -11,6 +11,9 @@
   * [Text to diagram](https://github.com/up1/workshop-ai-with-technical-team/wiki/Text-to-diagram) 
   * [Text to SQL](https://github.com/up1/workshop-ai-with-technical-team/tree/main/workshop/demo-sql)
 * [RAG workshop](https://github.com/up1/workshop-ai-with-technical-team/tree/main/workshop/rag)
+  * Vector database
+    * FAISS
+    * MongoDB
 * [Working Nodejs](https://github.com/up1/demo-openai-prompt-nodejs)
 * Working with Langchain library
   * [CSV Agent](https://github.com/up1/workshop-ai-with-technical-team/tree/main/workshop/demo-agent/data-analysis)
