@@ -4,3 +4,5 @@ pypdf
 tabulate
 numpy
 pandas
+langchain_openai
+langchain_community
