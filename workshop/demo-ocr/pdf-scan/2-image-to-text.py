@@ -1,6 +1,6 @@
 import easyocr
 reader = easyocr.Reader(['en', 'th'])
-result = reader.readtext("image_1.png", detail=0)
+result = reader.readtext("image_2.png", detail=0)
 # type
 print(type(result))
 # print all index in list

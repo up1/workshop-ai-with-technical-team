@@ -34,7 +34,7 @@ def SendChatRequest(prompt, chart_type, direction):
     # Send prompt to OpenAI
     client = OpenAI()
     response = client.chat.completions.create(
-        model="gpt-4o", messages=full_prompt, max_tokens=1000
+        model="gpt-4o", messages=full_prompt, max_tokens=2000
     )
     response = response.choices[0].message.content
     response = response.replace("```", "")
