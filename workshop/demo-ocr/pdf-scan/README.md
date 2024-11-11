@@ -55,7 +55,26 @@ $python 4-fix-text-by-ollama.py
 
 Results :: `page_1_fixed_ollama.txt`
 
+### 5. RAG
+* Embedding data and save into Vector database
+  * OpenAI's embedding
+  * Vector database = [FAISS](https://python.langchain.com/docs/integrations/vectorstores/faiss/)
+* Search relevent data
+* Send to LLM provider
+  * OpenAI
 
+### 5.1 Create embedding and save into file
+* [Chunking](https://python.langchain.com/docs/how_to/character_text_splitter/)
+* Embedding
+```
+$python 5-rag-embedding.py
+```
+Results :: Create folder `data.faiss`
+
+### 5.2 relevent data and send to OpenAI API
+```
+$python 6-rag-search.py
+```
 
 ### Reference websites
 * [Python OCR libraries for converting PDFs into editable text](https://ploomber.io/blog/pdf-ocr/)
