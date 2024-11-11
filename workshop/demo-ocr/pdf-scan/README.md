@@ -12,7 +12,7 @@
 ### 0. Install libraries
 File `requirements.txt`
 ```
-pymupdf 
+pymupdf
 easyocr
 ```
 
