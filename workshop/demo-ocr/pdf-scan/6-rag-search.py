@@ -40,8 +40,6 @@ if __name__ == "__main__":
         print("No documents found")
         exit()
 
-    print(relevant_data)
-
     # 2.2 filter out the relevant data with lesss than 0.3 similarity score
     relevant_data = [data for data in relevant_data if data[1] > 0.3]
     if len(relevant_data) == 0:

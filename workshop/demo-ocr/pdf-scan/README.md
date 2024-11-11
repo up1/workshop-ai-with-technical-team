@@ -78,3 +78,4 @@ $python 6-rag-search.py
 
 ### Reference websites
 * [Python OCR libraries for converting PDFs into editable text](https://ploomber.io/blog/pdf-ocr/)
+* [FullStackRetrieval.com](https://community.fullstackretrieval.com/)
