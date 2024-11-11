@@ -47,6 +47,14 @@ $python 3-fix-text-by-openai.py
 
 Results :: `page_1_fixed.txt`
 
+### 4. Improve quality with LLM provider
+* Ollama + llama3.2:3b
+```
+$python 4-fix-text-by-ollama.py
+```
+
+Results :: `page_1_fixed_ollama.txt`
+
 
 
 ### Reference websites
