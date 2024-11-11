@@ -76,6 +76,11 @@ Results :: Create folder `data.faiss`
 $python 6-rag-search.py
 ```
 
+### 5.3 Compression context
+```
+$python 7-rag-search-compression.py
+```
+
 ### Reference websites
 * [Python OCR libraries for converting PDFs into editable text](https://ploomber.io/blog/pdf-ocr/)
 * [FullStackRetrieval.com](https://community.fullstackretrieval.com/)
