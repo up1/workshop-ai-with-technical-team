@@ -35,22 +35,25 @@ if __name__ == "__main__":
     db = FAISS.load_local("data.faiss", embeddings, allow_dangerous_deserialization=True)
 
     # 2. Search for relevant data
-    relevant_data = db.similarity_search_with_score(question)
+    relevant_data = db.similarity_search(question)
+    # relevant_data = db.similarity_search_with_score(question)
     if len(relevant_data) == 0:
         print("No documents found")
         exit()
 
     # 2.2 filter out the relevant data with lesss than 0.3 similarity score
-    relevant_data = [data for data in relevant_data if data[1] > 0.3]
-    if len(relevant_data) == 0:
-        print("No relevant documents found > 0.5 similarity score")
-        exit()
+    # relevant_data = [data for data in relevant_data if data[1] > 0.3]
+    # if len(relevant_data) == 0:
+    #     print("No relevant documents found > 0.5 similarity score")
+    #     exit()
 
     # 2.3 Create a new FAISS index with the relevant data
-    relevant_data_db = FAISS.from_documents([data[0] for data in relevant_data], embeddings)
+    # relevant_data_db = FAISS.from_documents([data[0] for data in relevant_data], embeddings)
+    relevant_data_db = FAISS.from_documents(relevant_data, embeddings)
     
     # 3. Generate response
     response = generate_response(relevant_data_db.as_retriever() , question)
+    # response = generate_response(relevant_data_db.as_retriever() , question)
 
     # Print the response
     print(response)
