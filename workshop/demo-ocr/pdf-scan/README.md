@@ -46,3 +46,8 @@ $python 3-fix-text-by-openai.py
 ```
 
 Results :: `page_1_fixed.txt`
+
+
+
+### Reference websites
+* [Python OCR libraries for converting PDFs into editable text](https://ploomber.io/blog/pdf-ocr/)
