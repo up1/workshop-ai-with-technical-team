@@ -4,6 +4,7 @@
 ## 1. OpenAI Prompt Caching
 * OpenAI's Prompt Caching automatically applies to prompts longer than 1,024 tokens
 * Caching mechanism reduces costs and latency for repeated prompts
+* Auto caching in api => [chat completion](https://platform.openai.com/docs/api-reference/chat/object)
 
 ```
 $python demo-openai.py
