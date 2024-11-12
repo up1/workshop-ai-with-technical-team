@@ -1,4 +1,4 @@
-import fitz
+import pymupdf as fitz
 
 pdffile = "doc-scan.pdf"
 doc = fitz.open(pdffile)

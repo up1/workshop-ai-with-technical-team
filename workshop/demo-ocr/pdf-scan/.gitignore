@@ -2,3 +2,4 @@
 *.txt
 *.pdf
 data.faiss/
+demo/
