@@ -18,3 +18,16 @@ CompletionUsage(
         prompt_tokens_details=PromptTokensDetails(
             audio_tokens=0, cached_tokens=1024))
 ```
+
+## 2. Anthropic caching
+* [Prompt caching (beta)](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
+
+```
+$python demo-anthropic.py
+
+usage=PromptCachingBetaUsage(
+    cache_creation_input_tokens=0, 
+    cache_read_input_tokens=2424, 
+    input_tokens=15, 
+    output_tokens=45)
+```
