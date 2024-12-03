@@ -3,6 +3,10 @@
 * Insert sample data
 * Read schema and send to LLM provider
 * Question and Answer with LLM provider
+* LLM Providers
+  *  Anthropic
+  *  OpenAI
+  *  Ollama 
 
 ## Steps to run
 ```
