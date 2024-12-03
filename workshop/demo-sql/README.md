@@ -21,3 +21,4 @@ If you got error, please remove file `test_db.db`
 
 ### References
 * [Anthropic example](https://github.com/anthropics/anthropic-cookbook/tree/main/skills/text_to_sql)
+* [Ollama:OpenAI compatibility](https://ollama.com/blog/openai-compatibility)
