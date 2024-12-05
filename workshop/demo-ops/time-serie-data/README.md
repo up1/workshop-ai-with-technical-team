@@ -2,6 +2,8 @@
 * Find problem from data 
   * Logs
   * Metrics
+* Libraries
+  * [Prophet](https://facebook.github.io/prophet/)
 
 ## Install
 ```
