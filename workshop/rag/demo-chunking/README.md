@@ -27,3 +27,14 @@ $python 2-structure-based.py
 ## Context-Enriched Chunking
 * Working with LLM provider
 
+### Steps
+* Read data from website
+* Summarize data from LLM provider
+* Chunking
+* Embedding and save to Vector database
+
+```
+$export OPENAI_API_KEY=your-api-key
+$python 3-context-enriched.py
+```
+
