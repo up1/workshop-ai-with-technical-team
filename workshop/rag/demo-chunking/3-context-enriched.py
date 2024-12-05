@@ -27,14 +27,14 @@ print(summary)
 # Creating Chunks with Recursive Character Splitter
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 text_splitter = RecursiveCharacterTextSplitter(
-chunk_size=1000,
-chunk_overlap=200)
+    chunk_size=1000,
+    chunk_overlap=200)
 chunks=text_splitter.split_text(data_transformed[0].page_content)
 
 # Enriching Chunks with Summary Data
 context_enriched_chunks = [summary + "\n" + chunk for chunk in chunks]
 
-# Creating embeddings and storing in FAISS index
+# Creating embeddings and storing in FAISS indexs
 embedding = OpenAIEmbeddings()
 vector_store = FAISS.from_texts(context_enriched_chunks, embedding)
 vector_store.save_local("fifa_world_cup.faiss")
