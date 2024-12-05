@@ -38,3 +38,6 @@ $export OPENAI_API_KEY=your-api-key
 $python 3-context-enriched.py
 ```
 
+
+### Reference websites
+* [Breaking It Down : Chunking for Better RAG](https://towardsdatascience.com/breaking-it-down-chunking-techniques-for-better-rag-3fd288bf25a0)
