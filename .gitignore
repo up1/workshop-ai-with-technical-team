@@ -1,2 +1,6 @@
 .aider*
 *.key
+.DS_Store
+*.db
+.hypothesis/
+.genaiscript/
