@@ -1,5 +1,5 @@
-import os
-import openai
+from openai import OpenAI
+client = OpenAI()
 
 # Read text from file
 text = ""
@@ -7,10 +7,10 @@ with open('data.txt', 'r') as file:
     text = file.read()
 
 # Connect to the OpenAI API
-response = openai.chat.completions.create(
+response = client.chat.completions.create(
     model="gpt-4o",
     messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "assistant", "content": "You are a helpful assistant."},
         {"role": "user", "content": text}
     ]
 )
