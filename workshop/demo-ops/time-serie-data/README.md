@@ -4,6 +4,7 @@
   * Metrics
 * Libraries
   * [Prophet](https://facebook.github.io/prophet/)
+  * [Learning Prophet](https://blog.streamlit.io/forecasting-with-streamlit-prophet/)
 
 ## Install
 ```
