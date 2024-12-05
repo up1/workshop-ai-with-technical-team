@@ -11,6 +11,7 @@ $pip install -r requirments.txt
 * [CharacterTextSplitter](https://python.langchain.com/docs/how_to/character_text_splitter/)
 
 ```
+$export OPENAI_API_KEY=your-api-key
 $python python 1-fixed-size.py
 ```
 

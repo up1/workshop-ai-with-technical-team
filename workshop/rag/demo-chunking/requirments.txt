@@ -1,1 +1,6 @@
 langchain-text-splitters
+langchain
+langchain-community
+langchain-openai
+openai
+faiss-cpu
