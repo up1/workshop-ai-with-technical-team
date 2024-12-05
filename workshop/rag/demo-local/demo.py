@@ -36,6 +36,8 @@ from langchain_ollama import OllamaLLM
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
 llm = OllamaLLM(
+    # url of ollama server
+    base_url = "http://localhost:11434",
     model = "llama3.1",
     verbose = True,
     callbacks = CallbackManager([StreamingStdOutCallbackHandler()]),
