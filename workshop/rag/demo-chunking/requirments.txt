@@ -4,3 +4,5 @@ langchain-community
 langchain-openai
 openai
 faiss-cpu
+lxml
+html2text
