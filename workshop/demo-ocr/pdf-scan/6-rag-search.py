@@ -7,7 +7,7 @@ from langchain.chains import create_retrieval_chain
 
 QUERY_PROMPT = """
 Instructions: Answer the following question based on the context provided with short answer.
-and if the answer is not contained within the text below, say "I don't know
+and if the answer is not contained within the text below, say "I don't know"
 Context : {context}
 """
 

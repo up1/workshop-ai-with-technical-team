@@ -8,7 +8,6 @@
    * Thai and English
 4. Improve quality with LLM provider
 
-
 ### 0. Install libraries
 File `requirements.txt`
 ```
@@ -22,6 +21,7 @@ $pip install -r requirements.txt
 ```
 
 ### 1. Convert from pdf to image (page-by-page)
+* [List of problems](https://pymupdf.readthedocs.io/en/latest/installation.html#problems-after-installation)
 ```
 $python 1-pdf-to-image.py 
 ```
