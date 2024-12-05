@@ -1,7 +1,6 @@
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.vectorstores.faiss import FAISS
 from langchain_openai import OpenAIEmbeddings
-import pickle
 
 # Load an example document
 with open("./data/1.txt") as f:
