@@ -12,7 +12,7 @@ api_spec = schemathesis.from_path("openapi.yml")
 # Generate mock data for the given prompt
 def generate_mock_data(prompt):
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a automation tester."},
             {"role": "user", "content": """

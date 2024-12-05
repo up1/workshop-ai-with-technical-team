@@ -16,3 +16,7 @@ $python 1-gen-data-test.py
 ```
 
 ## Generate data test from OpenAPI specification
+```
+$export OPENAI_API_KEY=<your-api-key>
+$python 2-gen-data-test-openai.py
+```
