@@ -49,13 +49,13 @@ $python 3-context-enriched.py
 
 4.1 with RecursiveCharacterTextSplitter
 ```
-$TOKENIZERS_PARALLELISM=true
+$export TOKENIZERS_PARALLELISM=true
 $python 5-native.py
 ```
 
 4.2 with SemanticChunker
 ```
-$TOKENIZERS_PARALLELISM=true
+$export TOKENIZERS_PARALLELISM=true
 $python 5-semantic.py
 ```
 
