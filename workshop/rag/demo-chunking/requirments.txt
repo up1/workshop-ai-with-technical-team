@@ -6,3 +6,11 @@ openai
 faiss-cpu
 lxml
 html2text
+
+# For semantic chunking
+pypdf
+sentence-transformers
+langchain_huggingface
+faiss-cpu
+langchain-ollama
+langchain_experimental
