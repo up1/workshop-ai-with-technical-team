@@ -18,12 +18,12 @@ semantic_chunks = semantic_chunker.create_documents([d.page_content for d in doc
 print(f"Chunks= {len(semantic_chunks)}")
 print(semantic_chunks[0].page_content)
 
-# Find the chunk with the title "Effect of Pre-training Tasks"
-for semantic_chunk in semantic_chunks:
-  if "Feature-based Approach with BERT" in semantic_chunk.page_content:
-    print(len(semantic_chunk.page_content))
-    print(semantic_chunk.page_content)
-exit()
+# Find the chunk with the title "Feature-based Approach with BERT"
+# for semantic_chunk in semantic_chunks:
+#   if "Feature-based Approach with BERT" in semantic_chunk.page_content:
+#     print(len(semantic_chunk.page_content))
+#     print(semantic_chunk.page_content)
+# exit()
 
 # Step 3: Store in vector database
 db = FAISS.from_documents(semantic_chunks, embed_model)
