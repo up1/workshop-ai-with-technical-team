@@ -1,62 +1,95 @@
-from openai import OpenAI
 import sqlite3
+from openai import OpenAI
 
-# Set up the Anthropic API client
-client = OpenAI(
-    base_url = 'http://localhost:11434/v1',
-    api_key='ollama', # required, but unused
-)
-MODEL_NAME = "llama3.2:1b"
+# Constants
+OPENAI_BASE_URL = 'http://localhost:11434/v1'
+OPENAI_API_KEY = 'ollama'  # Required but unused
+OPENAI_MODEL_NAME = "llama3.2:1b"
+DATABASE_NAME = "test_db.db"
+EMPLOYEES_TABLE_NAME = "employees"
 
-# Connect to the test database (or create it if it doesn't exist)
-conn = sqlite3.connect("test_db.db")
-cursor = conn.cursor()
+# Initialize the OpenAI client
+openai_client = OpenAI(base_url=OPENAI_BASE_URL, api_key=OPENAI_API_KEY)
 
-# Create a sample table
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS employees (
-        id INTEGER PRIMARY KEY,
-        name TEXT,
-        department TEXT,
-        salary INTEGER
-    )
-""")
+def setup_database():
+    """Set up the SQLite database and populate it with sample data."""
+    connection = sqlite3.connect(DATABASE_NAME)
+    cursor = connection.cursor()
 
-# Insert sample data
-sample_data = [
-    (1, "John Doe", "Sales", 50000),
-    (2, "Jane Smith", "Engineering", 75000),
-    (3, "Mike Johnson", "Sales", 60000),
-    (4, "Emily Brown", "Engineering", 80000),
-    (5, "David Lee", "Marketing", 55000)
-]
-cursor.executemany("INSERT INTO employees VALUES (?, ?, ?, ?)", sample_data)
-conn.commit()
+    # Create table if it doesn't exist
+    cursor.execute(f"""
+        CREATE TABLE IF NOT EXISTS {EMPLOYEES_TABLE_NAME} (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            department TEXT,
+            salary INTEGER
+        )
+    """)
 
-# Define a function to send a query to Claude and get the response
-def ask_ai(query, schema):
+    # Sample data
+    sample_employees = [
+        (1, "John Doe", "Sales", 50000),
+        (2, "Jane Smith", "Engineering", 75000),
+        (3, "Mike Johnson", "Sales", 60000),
+        (4, "Emily Brown", "Engineering", 80000),
+        (5, "David Lee", "Marketing", 55000)
+    ]
 
-    response = client.chat.completions.create(
-        model=MODEL_NAME,
+    # Insert sample data
+    cursor.executemany(f"INSERT OR IGNORE INTO {EMPLOYEES_TABLE_NAME} VALUES (?, ?, ?, ?)", sample_employees)
+    connection.commit()
+    return connection, cursor
+
+def fetch_database_schema(cursor):
+    """Fetch the database schema as a formatted string."""
+    table_schema_info = cursor.execute(f"PRAGMA table_info({EMPLOYEES_TABLE_NAME})").fetchall()
+    schema_description = f"CREATE TABLE {EMPLOYEES_TABLE_NAME.upper()} (\n"
+    schema_description += "\n".join([f"    {column[1]} {column[2]}" for column in table_schema_info])
+    schema_description += "\n)"
+    return schema_description
+
+def generate_sql_query(natural_language_query, database_schema):
+    """Send a natural language query to the OpenAI client and return the generated SQL query."""
+    response = openai_client.chat.completions.create(
+        model=OPENAI_MODEL_NAME,
         messages=[
             {"role": "system", "content": "You are a helpful assistant to generate SQL from database."},
-            {"role": "user", "content": f"""Database schema: {schema}"""},
+            {"role": "user", "content": f"Database schema: {database_schema}"},
             {"role": "user", "content": "Given this schema, can you output a SQL query to answer the following question? Only output the SQL query and nothing else."},
-            {"role": "user", "content": query}
-            ]
+            {"role": "user", "content": natural_language_query}
+        ]
     )
+    return response.choices[0].message.content.strip()
 
-    return response.choices[0].message.content
+def main():
+    """Main function to set up the database, retrieve the schema, and query OpenAI for SQL generation."""
+    # Initialize database
+    connection, cursor = setup_database()
 
-# Get the database schema
-schema = cursor.execute("PRAGMA table_info(employees)").fetchall()
-schema_str = "CREATE TABLE EMPLOYEES (\n" + "\n".join([f"{col[1]} {col[2]}" for col in schema]) + "\n)"
-print(schema_str)
+    try:
+        # Retrieve database schema
+        database_schema = fetch_database_schema(cursor)
+        print("Database Schema:")
+        print(database_schema)
 
+        # Example natural language question
+        user_question = "What are the names and salaries of employees in the Engineering department?"
+        print(f"\nUser Question: {user_question}")
 
-# Example natural language question
-question = "What are the names and salaries of employees in the Engineering department?"
-# Send the question to Claude and get the SQL query
-sql_query = ask_ai(question, schema_str)
-print(question)
-print(sql_query)    
+        # Generate SQL query from the natural language question
+        generated_sql_query = generate_sql_query(user_question, database_schema)
+        print(f"Generated SQL Query:\n{generated_sql_query}")
+
+        # Execute the generated SQL query and display results
+        cursor.execute(generated_sql_query)
+        query_results = cursor.fetchall()
+        print("\nQuery Results:")
+        for result in query_results:
+            print(result)
+
+    finally:
+        # Close database connection
+        connection.close()
+
+if __name__ == "__main__":
+    main()
