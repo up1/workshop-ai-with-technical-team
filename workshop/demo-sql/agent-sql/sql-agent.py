@@ -20,5 +20,5 @@ llm = OpenAI(
 chain = create_sql_query_chain(llm, db)
 # Ask a question
 question = "What are the names and salaries of employees in the Engineering department?"
-response = chain.invoke({"question": "How many employees are there"})
+response = chain.invoke({"question": question})
 print(response)
