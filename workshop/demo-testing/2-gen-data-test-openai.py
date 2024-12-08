@@ -32,6 +32,8 @@ def generate_mock_data(prompt):
 
 # Generate mock data for the given endpoint
 product_id = 1
-prompt = f"To help test GET /products/:id API (get product detail), list diverse scenarios which post /products/:id API (get product detail) should handle. Format them as ordered list, one case per item."
+prompt = f"""To help test GET /products/:id API (get product detail), 
+list diverse scenarios which post /products/:id API (get product detail) should handle. 
+Format them as ordered list, one case per item."""
 mock_response = generate_mock_data(prompt)
 print(mock_response)
