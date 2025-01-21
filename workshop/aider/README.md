@@ -28,18 +28,38 @@ $aider index.js
 
 ## Create GET /products/:id
 ```
-create a rest api with nodejs and express library : GET /products/:id that return {
-"id": 1, "name": "product name", "price": 100.50}
+create a rest api with nodejs and express library
+GET /products/:id that return
+
+GET /products/1
+Success case with response code = 200
+{
+"id": 1,
+"name": "product name",
+"price": 100.50
+}
 ```
 
 ## Add case 404
 ```
 Improve code to add case 404 for product not found
+
+GET /products/2
+Success case with response code = 404
+{
+"message": "Product id = 2 not found in system"
+}
 ```
 
 ## Add case 500
 ```
 Improve code to add case 500 for database or internal error
+
+GET /products/3
+Success case with response code = 500
+{
+"message": "System error"
+}
 ```
 
 ## More prompts
