@@ -1,12 +1,12 @@
 # Demo RAG with MongoDB
 1. Create data exmample and save to CSV file
-  * Employees
-2. Create Embedding data for Vector search
-  * Store in MongoDB
-  * Search data (vector search) from MongoDB
+   * Employees
+3. Create Embedding data for Vector search
+   * Store in MongoDB
+   * Search data (vector search) from MongoDB
 3. Query data with LLM provider
-  * OpenAI API
-  * Prompt compression
+   * OpenAI API
+   * Prompt compression
 4. Working with [Langchain](https://www.langchain.com/) library
 
 ## Steps to run this workshop
