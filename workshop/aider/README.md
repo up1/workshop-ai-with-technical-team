@@ -10,12 +10,20 @@ $python -m pip install aider-chat
 
 ## Config LLM Provider :: API KEY
 ```
+// Anthropic API
 $export ANTHROPIC_API_KEY=your-api-key
+$aider
+
+// OPENAI API
 $export OPENAI_API_KEY=your-api-key
+$aider
 
 // Ollama :: https://aider.chat/docs/llms/ollama.html
 $export OLLAMA_API_BASE=http://127.0.0.1:11434
 $aider --model ollama/llama3.1
+
+// Start Aider in browser
+$aider --browser
 ```
 
 ## Start project with Aider with [OpenAI](https://aider.chat/docs/llms/openai.html)
