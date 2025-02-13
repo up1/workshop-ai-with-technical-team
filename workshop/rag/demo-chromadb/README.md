@@ -48,7 +48,14 @@ $python step_6.py
 
 ## Improvement :: 7. Re-ranking with Cohere
 * https://docs.cohere.com/v2/docs/rerank-on-langchain
+* https://dashboard.cohere.com/api-keys
 
 ```
+$export COHERE_API_KEY=<api key>
 $python step_7.py
+```
+
+## 8. Run with Cohere
+```
+$python step_8.py
 ```
