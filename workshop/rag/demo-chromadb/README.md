@@ -45,3 +45,10 @@ After with
 ```
 $python step_6.py
 ```
+
+## 6. Re-ranking with Cohere
+* https://docs.cohere.com/v2/docs/rerank-on-langchain
+
+```
+$python step_7.py
+```

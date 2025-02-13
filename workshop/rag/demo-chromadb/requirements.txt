@@ -7,4 +7,6 @@ langchain_chroma
 chromadb
 langchainhub
 beautifulsoup4
+
 flashrank
+langchain-cohere
