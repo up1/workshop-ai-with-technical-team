@@ -32,3 +32,16 @@ Create a new files amd folders in folder `demo.db/`
 ```
 $python step_4.py
 ```
+
+## 5. Re-ranking with FlashRank reranker
+* https://python.langchain.com/docs/integrations/retrievers/flashrank-reranker/
+
+Before
+```
+$python step_5.py
+```
+
+After with 
+```
+$python step_6.py
+```
