@@ -1,5 +1,9 @@
 # RAG with [ChromaDB](https://www.trychroma.com/)
-
+* Load document from web
+* Split and chunking data into small pieces
+* Embedding and save into Vector database
+* Search ralevant data from Vector database
+* Send query + relevant data/context to LLM provider
 
 ## 1. Install dependencies
 ```

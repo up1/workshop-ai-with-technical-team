@@ -35,6 +35,7 @@ prompt = PromptTemplate.from_template(template=template)
 
 # Format the docs to be used in the prompt
 def format_docs(docs):
+    print(docs)
     if not docs:
         return "I don't know."
     return "\n\n".join(doc.page_content for doc in docs)
