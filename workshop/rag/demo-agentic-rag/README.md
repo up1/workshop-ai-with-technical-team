@@ -3,6 +3,7 @@
 * OpenAI
 * [LanceDB](https://lancedb.com/)
   * Vector database :: open source database for AI
+* Working with PDF file
 
 
 ## 1. Install dependencies
