@@ -6,15 +6,25 @@
 $pip install -r requirements.txt
 ```
 
-## 2. Load data and save into vector database
+## 2. Load data from web
 ```
-$set USER_AGENT=123
+$export USER_AGENT=123
 $python step_1.py
+```
+
+## 3. Chunking data with RecursiveCharacterTextSplitter
+```
+$python step_2.py
+```
+
+## 4. Embedding and save to Vector database
+```
+$python step_3.py
 ```
 
 Create a new files amd folders in folder `demo.db/`
 
-## 3. Retriever and generate response from LLM
+## 4. Retriever and generate response from LLM
 ```
-$python step_2.py
+$python step_4.py
 ```

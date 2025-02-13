@@ -1,46 +1,29 @@
 import os 
 os.environ['USER_AGENT'] = 'demoagent'
 
-from langchain_chroma import Chroma
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.runnables import RunnablePassthrough
-from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_core.prompts.prompt import PromptTemplate
+import bs4
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.vectorstores import Chroma
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
 
-
-# Load vectorstore from chromadb from step 1
-vectorstore = Chroma(
-    embedding_function=OpenAIEmbeddings(),
-    persist_directory="demo.db",
-    collection_name="demo_web"
+# 1. Load, chunk and index the contents from wikipedia and save to Vector DB(ChromaDB)
+loader = WebBaseLoader(
+    web_paths=(
+        "https://aws.amazon.com/th/what-is/retrieval-augmented-generation/",
+    ),
+    bs_kwargs=dict(
+        parse_only=bs4.SoupStrainer(class_="eb-faq-content")
+    ),
 )
-retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
+docs = loader.load()
 
-# 2. Define the RAG pipeline.
-# https://smith.langchain.com/hub/rlm/rag-prompt
-template = """You are an assistant for question-answering tasks. Use the following pieces of retrieved context to answer the question. If you don't know the answer, just say that you don't know". Use three sentences maximum and keep the answer concise.
+# 2. Split the documents into chunks
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+splits = text_splitter.split_documents(docs)
+print("Size of chunk:", splits.__len__())
 
-Question: {question} 
-Context: {context} 
-Answer:
-"""
-
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
-prompt = PromptTemplate.from_template(template=template)
-
-# Format the docs to be used in the prompt
-def format_docs(docs):
-    if not docs:
-        return "I don't know."
-    return "\n\n".join(doc.page_content for doc in docs)
-
-rag_chain = (
-    {"context": retriever | format_docs, "question": RunnablePassthrough()}
-    | prompt
-    | llm
-    | StrOutputParser()
-)
-
-# 3. Run the pipeline
-result = rag_chain.invoke("What is chroma?")
-print("Result:", result)
+# Show the first 3 splits
+for split in splits[:3]:
+    print(split.page_content)
+    print("=====================")

@@ -17,4 +17,17 @@ loader = WebBaseLoader(
     ),
 )
 docs = loader.load()
-print(docs)
+
+# 2. Split the documents into chunks
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+splits = text_splitter.split_documents(docs)
+
+# 3. Save vectorstore to disk
+vectorstore = Chroma.from_documents(
+    documents=splits, 
+    embedding=OpenAIEmbeddings(),
+    persist_directory="demo.db",
+    collection_name="demo_web"
+)
+
+print("Vectorstore saved to disk")
