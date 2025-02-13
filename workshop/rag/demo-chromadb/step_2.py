@@ -22,8 +22,11 @@ docs = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 splits = text_splitter.split_documents(docs)
 print("Size of chunk:", splits.__len__())
+for idx, text in enumerate(splits):
+    text.metadata["id"] = idx
 
-# Show the first 3 splits
-for split in splits[:3]:
+# Show the first 5 splits
+for split in splits[:5]:
+    print("ID:", split.metadata["id"])
     print(split.page_content)
     print("=====================")
