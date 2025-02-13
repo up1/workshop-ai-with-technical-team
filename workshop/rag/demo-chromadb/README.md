@@ -33,7 +33,7 @@ Create a new files amd folders in folder `demo.db/`
 $python step_4.py
 ```
 
-## Improvement :: 6. Re-ranking with FlashRank reranker
+## 6. Improvement :: Re-ranking with FlashRank reranker
 * https://python.langchain.com/docs/integrations/retrievers/flashrank-reranker/
 
 Before
@@ -46,7 +46,7 @@ After with
 $python step_6.py
 ```
 
-## Improvement :: 7. Re-ranking with Cohere
+## 7. Improvement :: Re-ranking with Cohere
 * https://docs.cohere.com/v2/docs/rerank-on-langchain
 * https://dashboard.cohere.com/api-keys
 
