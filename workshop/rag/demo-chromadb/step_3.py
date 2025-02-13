@@ -21,6 +21,8 @@ docs = loader.load()
 # 2. Split the documents into chunks
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 splits = text_splitter.split_documents(docs)
+for idx, text in enumerate(splits):
+    text.metadata["id"] = idx
 
 # 3. Save vectorstore to disk
 vectorstore = Chroma.from_documents(
