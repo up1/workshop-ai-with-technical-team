@@ -28,12 +28,12 @@ $python step_3.py
 
 Create a new files amd folders in folder `demo.db/`
 
-## 4. Retriever and generate response from LLM
+## 5. Retriever and generate response from LLM
 ```
 $python step_4.py
 ```
 
-## 5. Re-ranking with FlashRank reranker
+## Improvement :: 6. Re-ranking with FlashRank reranker
 * https://python.langchain.com/docs/integrations/retrievers/flashrank-reranker/
 
 Before
@@ -46,7 +46,7 @@ After with
 $python step_6.py
 ```
 
-## 6. Re-ranking with Cohere
+## Improvement :: 7. Re-ranking with Cohere
 * https://docs.cohere.com/v2/docs/rerank-on-langchain
 
 ```
