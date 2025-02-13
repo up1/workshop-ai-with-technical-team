@@ -41,7 +41,7 @@ Before
 $python step_5.py
 ```
 
-After with 
+After with FlashRank reranker
 ```
 $python step_6.py
 ```
