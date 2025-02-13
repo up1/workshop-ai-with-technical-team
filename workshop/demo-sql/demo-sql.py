@@ -5,9 +5,12 @@ import sqlite3
 client = Anthropic()
 MODEL_NAME = "claude-3-opus-20240229"
 
-# Connect to the test database (or create it if it doesn't exist)
+# Step 1 :: Connect to the test database (or create it if it doesn't exist)
 conn = sqlite3.connect("test_db.db")
 cursor = conn.cursor()
+
+# Drop if exists
+cursor.execute("DROP TABLE IF EXISTS employees")
 
 # Create a sample table
 cursor.execute("""
@@ -30,13 +33,16 @@ sample_data = [
 cursor.executemany("INSERT INTO employees VALUES (?, ?, ?, ?)", sample_data)
 conn.commit()
 
+#Step 2 :: Define a function to send a query to Claude and get the response
+
 # Define a function to send a query to Claude and get the response
 def ask_claude(query, schema):
     prompt = f"""Here is the schema for a database:
 
 {schema}
 
-Given this schema, can you output a SQL query to answer the following question? Only output the SQL query and nothing else.
+Given this schema, can you output a SQL query to answer the following question? 
+Only output the SQL query and nothing else.
 
 Question: {query}
 """
@@ -57,7 +63,7 @@ print(schema_str)
 
 
 # Example natural language question
-question = "What are the names and salaries of employees in the Engineering department?"
+question = "List all employees in the Sales department with a salary greater than 55000."
 # Send the question to Claude and get the SQL query
 sql_query = ask_claude(question, schema_str)
 print(sql_query)
