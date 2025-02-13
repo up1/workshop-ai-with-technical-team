@@ -1,6 +1,7 @@
 # Demo :: Agentic AI with RAG
 * [Agno](https://github.com/agno-agi/agno) is a lightweight framework for building multi-modal Agents
 * OpenAI
+* Working with PDF file
 
 
 ## 1. Install dependencies
