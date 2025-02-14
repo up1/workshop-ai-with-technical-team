@@ -7,3 +7,5 @@ sqlalchemy
 pgvector 
 psycopg[binary]
 duckduckgo_search
+fastapi
+uvicorn
