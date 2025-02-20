@@ -1,21 +1,26 @@
 # AI Agent with [Aider](https://aider.chat/)
-
+* Develop REST API with NodeJS
+  * express library
+  * testing with jest and supertest library  
 
 ## [Install Aider](https://aider.chat/docs/install/install.html)
 ```
 $python -m venv ./demo/venv
 $source ./demo/venv/bin/activate
 $python -m pip install aider-chat
+
+$aider --version                     
+aider 0.74.2
 ```
 
 ## Config LLM Provider :: API KEY
 ```
-// Anthropic API
-$export ANTHROPIC_API_KEY=your-api-key
-$aider
-
 // OPENAI API
 $export OPENAI_API_KEY=your-api-key
+$aider
+
+// Anthropic API
+$export ANTHROPIC_API_KEY=your-api-key
 $aider
 
 // Ollama :: https://aider.chat/docs/llms/ollama.html
@@ -26,8 +31,27 @@ $aider --model ollama/llama3.1
 $aider --browser
 ```
 
-## Start project with Aider with [OpenAI](https://aider.chat/docs/llms/openai.html)
+## Initial project
+```
+$npm init -y
+$npm install -S express
+$npm install -D jest supertest
+```
 
+### Run test
+Edit file `package.json`
+```
+"scripts": {
+    "test": "jest"
+  }
+```
+
+Run
+```
+$npm test
+```
+
+## Start project with Aider with [OpenAI](https://aider.chat/docs/llms/openai.html)
 
 Create file `index.js`
 ```
@@ -86,22 +110,3 @@ ep of process
 ry : GET /products/:id that return { 
 "id": 1, "name": "product name", "price": 100.50}
 
-## Initial project
-```
-$npm init -y
-$npm install -S express
-$npm install -D jest supertest
-```
-
-## Run test
-Edit file `package.json`
-```
-"scripts": {
-    "test": "jest"
-  }
-```
-
-Run
-```
-$npm test
-```
