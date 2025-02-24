@@ -58,9 +58,10 @@ $python step_3_search_and_prompt.py
 ```
 
 ## Step 5 :: Evaluate actiual result with expected result
+* [Confident AI QuickStart](https://docs.confident-ai.com/confident-ai/confident-ai-introduction)
+  * Great LLM Evaluation==Quality of Dataset×Quality of Metrics
 * [DeepEval](https://docs.confident-ai.com/)
   * Correctness metric
-
 
 Run
 ```
