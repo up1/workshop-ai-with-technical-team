@@ -57,3 +57,14 @@ $export OPENAI_API_KEY=<your key>
 $python step_3_search_and_prompt.py
 ```
 
+## Step 5 :: Evaluate actiual result with expected result
+* [DeepEval](https://docs.confident-ai.com/)
+  * Correctness metric
+
+
+Run
+```
+$deepeval test run test_correctness.py
+```
+
+
