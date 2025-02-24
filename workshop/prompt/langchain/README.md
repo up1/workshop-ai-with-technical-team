@@ -1,4 +1,4 @@
-# Workshop :: FAQ with Langchain
+# Workshop :: FAQ with [Langchain](https://www.langchain.com/)
 * OpenAI API
 
 
