@@ -1,5 +1,6 @@
 demo/
 __pycache__/
+faiss_index/
 config.py
 *.pdf
 pyc
