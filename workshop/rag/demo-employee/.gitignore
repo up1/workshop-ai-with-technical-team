@@ -4,3 +4,4 @@ employee_db/
 __pycache__/
 .deepeval-cache.json
 .deepeval_telemetry.txt
+.deepeval
