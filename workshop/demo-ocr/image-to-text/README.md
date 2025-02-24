@@ -14,10 +14,15 @@ $python solution_1.py
 * Send data to OpenAI
   * data:image/png;base64
 * LLM providers
-  * OpenAI
-  * Gemini
+  * [OpenAI](https://platform.openai.com/docs/overview)
+  * [Gemini](https://aistudio.google.com/)
 
 ```
 $export OPENAI_API_KEY=<your key>
 $python solution_2.py
 ```
+
+
+### Reference websites
+* https://github.com/ceodaniyal/Image_To_Text_GPT-4o-mini
+* https://huggingface.co/spaces/echo840/ocrbench-leaderboard
