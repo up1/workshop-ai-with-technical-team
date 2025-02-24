@@ -1,7 +1,15 @@
+# Formatting data
 pandas
+
+# Langchain
 langchain 
 langchain_community 
 langchain_core 
 langchain_openai
+
+# Vector database with Chroma
 langchain_chroma
 chromadb
+
+# Evaluation
+deepeval
