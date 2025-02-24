@@ -1,0 +1,14 @@
+[
+    {
+        "input": "Who is the CEO of the company?",
+        "actual_output": "Grace Kim is the CEO of the company.",
+        "expected_output": "Grace Kim",
+        "retrieval_context": ["Employee information \nGrace Kim is a CEO in the Executive department and working at Paris Office."]
+    },
+    {
+        "input": "Who is the CTO of the company?",
+        "actual_output": "Frank Chen is the CTO of the company.", 
+        "expected_output": "Frank Chen",
+        "retrieval_context": ["Employee information \nFrank Chen is a CTO in the Executive department and working at San Francisco Office."]
+    }
+]

@@ -1,38 +1,30 @@
+import pytest
 from deepeval import assert_test
 from deepeval.test_case import LLMTestCase
 from deepeval.metrics import GEval
 from deepeval.test_case import LLMTestCaseParams
+import json
 
+# Load test cases once at module level
+with open('test_cases.json', 'r') as f:
+    LOADED_CASES = json.load(f)
 
-def test_relevancy():
-    correctness_metric = GEval(
-    name="Correctness",
-    model="gpt-4o",
-    evaluation_params=[
-        LLMTestCaseParams.EXPECTED_OUTPUT,
-        LLMTestCaseParams.ACTUAL_OUTPUT],
-    evaluation_steps=[
-        "Check whether the facts in 'actual output' contradicts any facts in 'expected output'",
-        "You should also lightly penalize omission of detail, and focus on the main idea",
-        "Vague language, or contradicting OPINIONS, are OK"
-    ],
-)
-    test_case_1 = LLMTestCase(
-        input="Who is the CEO of the company?",
-        actual_output="Grace Kim is the CEO of the company.",
-        expected_output="Grace Kim",
-        retrieval_context=[
-            "Employee information \nGrace Kim is a CEO in the Executive department and working at Paris Office."
+@pytest.fixture
+def correctness_metric():
+    return GEval(
+        name="Correctness",
+        model="gpt-4o",
+        evaluation_params=[
+            LLMTestCaseParams.EXPECTED_OUTPUT,
+            LLMTestCaseParams.ACTUAL_OUTPUT],
+        evaluation_steps=[
+            "Check whether the facts in 'actual output' contradicts any facts in 'expected output'",
+            "You should also lightly penalize omission of detail, and focus on the main idea",
+            "Vague language, or contradicting OPINIONS, are OK"
         ],
     )
 
-    test_case_2 = LLMTestCase(
-        input="Who is the CTO of the company?",
-        actual_output="Frank Chen is the CTO of the company.",
-        expected_output="Frank Chen",
-        retrieval_context=[
-            "Employee information \nFrank Chen is a CTO in the Executive department and working at San Francisco Office.",
-        ],
-    )
-    assert_test(test_case_1, [correctness_metric])
-    assert_test(test_case_2, [correctness_metric])
+@pytest.mark.parametrize("test_case_data", LOADED_CASES)
+def test_correctness(test_case_data, correctness_metric):
+    test_case = LLMTestCase(**test_case_data)
+    assert_test(test_case, [correctness_metric])
