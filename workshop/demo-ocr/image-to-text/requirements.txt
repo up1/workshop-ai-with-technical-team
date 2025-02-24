@@ -1,1 +1,5 @@
 openai
+
+Pillow
+pytesseract
+easyocr

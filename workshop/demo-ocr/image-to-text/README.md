@@ -2,8 +2,12 @@
 
 
 ## Solution 1 :: Using OCR (Optical Character Recognition)
+* pytesseract
+* easyocr
 
-
+```
+$python solution_1.py
+```
 
 ## Solution 2 :: Using OpenAI Model
 * Convert image to base64

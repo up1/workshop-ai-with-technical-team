@@ -1,7 +1,11 @@
 from openai import OpenAI
 import base64
 
-client = OpenAI()
+model = "gemini-2.0-flash" # "gpt-4o-mini"
+client = OpenAI(
+    api_key="your-api-key",
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
+)
 
 def image_to_base64(image_path):
     with open(image_path, "rb") as image_file:
@@ -9,7 +13,7 @@ def image_to_base64(image_path):
 
 def image_to_text_from_url(image_url):
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model=model,
         messages=[
             {
                 "role": "user",
@@ -25,7 +29,7 @@ def image_to_text_from_url(image_url):
 
 def image_to_text_from_base64(image_base64):
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model=model,
         messages=[
             {
                 "role": "user",
