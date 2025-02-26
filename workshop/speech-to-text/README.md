@@ -20,3 +20,11 @@ $python demo-openai.py
 $pip install git+https://github.com/huggingface/speechbox
 $python demo-huggingface.py
 ```
+
+## 3. Gemini
+* Get key from [Google AI Studio](https://aistudio.google.com/)
+
+```
+$export GEMINI_API_KEY=<your api key>
+$demo-vertex.py
+```
