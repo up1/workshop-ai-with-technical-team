@@ -21,7 +21,7 @@ $pip install git+https://github.com/huggingface/speechbox
 $python demo-huggingface.py
 ```
 
-## 3. Gemini
+## 3. [Gemini 2.0 Flash](https://deepmind.google/technologies/gemini/flash/)
 * Get key from [Google AI Studio](https://aistudio.google.com/)
 
 ```
