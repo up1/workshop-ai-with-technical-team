@@ -12,3 +12,10 @@
 $export OPENAI_API_KEY=<your api key>
 $python demo-openai.py
 ```
+
+## 2. [HuggingFace model]
+* https://huggingface.co/learn/audio-course/en/chapter5/demo
+
+```
+$python demo-huggingface.py
+```
