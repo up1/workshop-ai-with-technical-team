@@ -1,4 +1,4 @@
-# DEmo with Speech to text
+# Demo with Speech to text
 * OpenAI
 * Gemini
 
