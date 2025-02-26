@@ -2,6 +2,10 @@
 * OpenAI
 * Gemini
 
+## Step 0 :: Record your voice
+* https://whisper-openai.vercel.app/
+  * Save into file in `./files/demo.mp3`
+
 ## 1. [OpenAI with Whisper model](https://platform.openai.com/docs/guides/speech-to-text)
 
 ```
