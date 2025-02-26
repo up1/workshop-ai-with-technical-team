@@ -15,6 +15,7 @@ $python demo-openai.py
 
 ## 2. [Gemini 2.0 Flash](https://deepmind.google/technologies/gemini/flash/)
 * Get key from [Google AI Studio](https://aistudio.google.com/)
+* [Cookbook](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Audio.ipynb)
 
 ```
 $export GEMINI_API_KEY=<your api key>
