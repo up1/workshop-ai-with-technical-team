@@ -17,5 +17,6 @@ $python demo-openai.py
 * https://huggingface.co/learn/audio-course/en/chapter5/demo
 
 ```
+$pip install git+https://github.com/huggingface/speechbox
 $python demo-huggingface.py
 ```
