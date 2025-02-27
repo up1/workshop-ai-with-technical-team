@@ -22,7 +22,7 @@ $export GEMINI_API_KEY=<your api key>
 $demo-gemini.py
 ```
 
-## 3. [HuggingFace model]
+## 3. HuggingFace model
 * https://huggingface.co/learn/audio-course/en/chapter5/demo
 
 ```
