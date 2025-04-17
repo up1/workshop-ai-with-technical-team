@@ -8,7 +8,7 @@ with open('data.txt', 'r') as file:
 
 # Connect to the OpenAI API
 response = client.chat.completions.create(
-    model="gpt-4o",
+    model="gpt-4.1",
     messages=[
         {"role": "assistant", "content": "You are a helpful assistant."},
         {"role": "user", "content": text}
