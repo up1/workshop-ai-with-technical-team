@@ -24,6 +24,7 @@ CompletionUsage(
 * [Prompt caching (beta)](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
 
 ```
+$export ANTHROPIC_API_KEY=<your key>
 $python demo-anthropic.py
 
 usage=PromptCachingBetaUsage(
