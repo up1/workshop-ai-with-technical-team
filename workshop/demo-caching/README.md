@@ -7,6 +7,7 @@
 * Auto caching in api => [chat completion](https://platform.openai.com/docs/api-reference/chat/object)
 
 ```
+$export OPENAI_API_KEY=<your key>
 $python demo-openai.py
 
 CompletionUsage(

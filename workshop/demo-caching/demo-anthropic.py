@@ -7,8 +7,8 @@ with open('data.txt', 'r') as file:
 
 client = anthropic.Anthropic()
 
-response = client.beta.prompt_caching.messages.create(
-    model="claude-3-5-sonnet-20241022",
+response = client.messages.create(
+    model="claude-3-7-sonnet-20250219",
     max_tokens=1024,
     system=[
       {
@@ -24,3 +24,4 @@ response = client.beta.prompt_caching.messages.create(
     messages=[{"role": "user", "content": "Summarize data in one line."}],
 )
 print(response)
+print(response.usage.model_dump_json())
