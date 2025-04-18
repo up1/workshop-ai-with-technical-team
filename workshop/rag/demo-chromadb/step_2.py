@@ -28,5 +28,13 @@ for idx, text in enumerate(splits):
 # Show the first 5 splits
 for split in splits[:5]:
     print("ID:", split.metadata["id"])
+    # remove whitespace between the text
+    # and the text content
+    # remove the leading and trailing whitespace
+    # and the text content
+    # split.page_content = split.page_content.replace("\n", " ")
+    # split.page_content = split.page_content.replace("\r", " ")
+    # split.page_content = split.page_content.replace("\t", " ")
+    # split.page_content = split.page_content.strip()
     print(split.page_content)
     print("=====================")
