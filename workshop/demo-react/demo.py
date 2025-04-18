@@ -1,4 +1,5 @@
 from langchain_openai import ChatOpenAI
+# https://platform.openai.com/docs/api-reference/responses/object#responses/object-temperature
 model = ChatOpenAI(model="gpt-4o", temperature=0)
 from typing import Literal
 from langchain_core.tools import tool
