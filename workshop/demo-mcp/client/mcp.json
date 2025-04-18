@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+      "demo-server": {
+        "command": "python",
+        "args": [
+          "/Users/somkiatpuisungnoen/data/slide/AI/generative_ai/workshop/demo-mcp/demo_server.py"
+        ],
+        "host": "127.0.0.1",
+        "port": 8080,
+        "timeout": 10000
+      }
+    }
+  }
