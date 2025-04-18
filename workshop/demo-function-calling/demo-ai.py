@@ -23,7 +23,9 @@ tools = [{
 
 if __name__ == "__main__":
     # 1. Get the weather for Thailand
-    input_messages = [{"role": "user", "content": "What's the weather like in Bangkok, Thailand today?"}]
+    question = "What's the weather like in Bangkok, Thailand today?"
+    # Call the OpenAI API to get the response
+    input_messages = [{"role": "user", "content": question}]
     response = client.responses.create(
         model="gpt-4.1",
         input=input_messages,
@@ -33,8 +35,15 @@ if __name__ == "__main__":
     print(response.output)
 
     # 2. Execute get_weather function
+    # check tool calls
+    if not response.output or not response.output[0].type == "function_call":
+        print("No tool calls found in the response.")
+        exit(1)
+
+    # Get the first tool call
     tool_call = response.output[0]
     args = json.loads(tool_call.arguments)
     result = get_weather(args["latitude"], args["longitude"])
     # Print the result
     print(f"The current temperature is {result}°C")
+    
