@@ -10,3 +10,6 @@ beautifulsoup4
 
 flashrank
 langchain-cohere
+
+# Evaluation
+deepeval

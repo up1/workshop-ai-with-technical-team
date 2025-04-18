@@ -60,3 +60,8 @@ $python step_7.py
 ```
 $python step_8.py
 ```
+
+## 9. Evaluate actiual result with expected result with DeepEval
+```
+$deepeval test run test_correctness.py
+```
