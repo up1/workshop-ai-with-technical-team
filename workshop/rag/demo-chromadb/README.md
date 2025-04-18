@@ -23,6 +23,7 @@ $python step_2.py
 
 ## 4. Embedding and save to Vector database
 ```
+$export OPENAI_API_KEY=<api key>
 $python step_3.py
 ```
 
