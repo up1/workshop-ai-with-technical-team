@@ -18,6 +18,11 @@ $python demo-sql.py
 
 If you got error, please remove file `test_db.db`
 
+## More
+* Security in edge cases
+  * Delete data in table
+  * Drop table
+
 
 ### References
 * [Anthropic example](https://github.com/anthropics/anthropic-cookbook/tree/main/skills/text_to_sql)
