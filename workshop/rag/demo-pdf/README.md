@@ -13,6 +13,13 @@ $pip install -r requirements.txt
 ## Run with OpenAPI's Key
 ```
 $export OPENAI_API_KEY=<your key>
+
+// Store data in Vectoe DB
 $python step_01_store.py
-$python step_02_chat.py
+
+// Search or retrive data
+$python step_02_retrieve.py
+
+// Chat with AI
+$python step_03_chat.py
 ```
