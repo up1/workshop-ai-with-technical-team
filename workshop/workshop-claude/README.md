@@ -19,5 +19,10 @@ $python read_image.py
 
 ```
 $pip install -r requirements.txt
-$basic-openai.py
+$python basic-openai.py
+```
+
+## 4. Demo with Chat + History
+```
+$python basic-chat.py
 ```
