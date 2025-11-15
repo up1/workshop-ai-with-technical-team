@@ -17,8 +17,10 @@ vectorstore = Chroma(
 query = "RAG คืออะไร"
 
 # Re-ranking the documents
-from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
-from langchain_cohere import CohereRerank
+from langchain_classic.retrievers.contextual_compression import (
+    ContextualCompressionRetriever,
+)
+from langchain_cohere import ChatCohere, CohereRerank
 
 compressor = CohereRerank(model="rerank-english-v3.0")
 retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
