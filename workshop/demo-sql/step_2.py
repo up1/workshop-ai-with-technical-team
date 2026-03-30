@@ -3,7 +3,7 @@ import sqlite3
 
 # Set up the Anthropic API client
 client = Anthropic()
-MODEL_NAME = "claude-3-opus-20240229"
+MODEL_NAME = "claude-opus-4-6"
 
 def ask_claude(query, schema):
     prompt = f"""Here is the schema for a database:
@@ -44,6 +44,9 @@ def main():
     sql_query = ask_claude(question, schema_str)
     print("\nGenerated SQL Query:")
     print(sql_query)
+
+    # Remove ```sql and ``` if present
+    sql_query = sql_query.replace("```sql", "").replace("```", "").strip()
 
     # Execute the query and show results
     try:
